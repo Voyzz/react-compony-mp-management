@@ -27,13 +27,13 @@
     insert-css "^2.0.0"
     rc-util "^5.0.1"
 
-"@ant-design/pro-layout@^6.5.15":
-  version "6.5.15"
-  resolved "https://registry.npmjs.org/@ant-design/pro-layout/-/pro-layout-6.5.15.tgz#a5b8fb414ca51deebc8c4214b09699cfc30b60a7"
+"@ant-design/pro-layout@^6.5.16":
+  version "6.5.16"
+  resolved "https://registry.npmjs.org/@ant-design/pro-layout/-/pro-layout-6.5.16.tgz#e2b5426a151440588c8073ba0824c886cca53d4a"
   dependencies:
     "@ant-design/icons" "^4.0.0"
     "@ant-design/pro-provider" "1.2.1"
-    "@ant-design/pro-utils" "1.2.0"
+    "@ant-design/pro-utils" "1.3.0"
     "@umijs/route-utils" "^1.0.33"
     classnames "^2.2.6"
     history "^4.10.1"
@@ -56,9 +56,9 @@
   dependencies:
     rc-util "^5.0.1"
 
-"@ant-design/pro-utils@1.2.0":
-  version "1.2.0"
-  resolved "https://registry.npmjs.org/@ant-design/pro-utils/-/pro-utils-1.2.0.tgz#2bf2157558095b18224bba4ba0a18081f03a1689"
+"@ant-design/pro-utils@1.3.0":
+  version "1.3.0"
+  resolved "https://registry.npmjs.org/@ant-design/pro-utils/-/pro-utils-1.3.0.tgz#39f7ddc9b670050032ca2c66598495552cfafe4d"
   dependencies:
     "@ant-design/pro-provider" "1.2.1"
     fast-deep-equal "^3.1.3"
@@ -1999,9 +1999,9 @@ ansi-styles@^4.0.0, ansi-styles@^4.1.0:
   dependencies:
     color-convert "^2.0.1"
 
-antd@^4.8.4:
-  version "4.8.4"
-  resolved "https://registry.npmjs.org/antd/-/antd-4.8.4.tgz#48fbf35948eb44ce74263a6c7f9db70c312a3c2d"
+antd@latest:
+  version "4.8.6"
+  resolved "https://registry.npmjs.org/antd/-/antd-4.8.6.tgz#8606c22815e13af096e577fb018737de72d54d39"
   dependencies:
     "@ant-design/colors" "^5.0.0"
     "@ant-design/css-animation" "^1.7.2"
@@ -2014,7 +2014,6 @@ antd@^4.8.4:
     lodash "^4.17.20"
     moment "^2.25.3"
     omit.js "^2.0.2"
-    raf "^3.4.1"
     rc-animate "~3.1.0"
     rc-cascader "~1.4.0"
     rc-checkbox "~2.3.0"
@@ -2022,15 +2021,15 @@ antd@^4.8.4:
     rc-dialog "~8.4.0"
     rc-drawer "~4.1.0"
     rc-dropdown "~3.2.0"
-    rc-field-form "~1.15.0"
+    rc-field-form "~1.17.0"
     rc-image "~4.0.0"
     rc-input-number "~6.1.0"
     rc-mentions "~1.5.0"
     rc-menu "~8.10.0"
-    rc-motion "^2.2.0"
+    rc-motion "^2.4.0"
     rc-notification "~4.5.2"
     rc-pagination "~3.1.0"
-    rc-picker "~2.3.0"
+    rc-picker "~2.4.1"
     rc-progress "~3.1.0"
     rc-rate "~2.9.0"
     rc-resize-observer "^0.2.3"
@@ -2249,6 +2248,12 @@ aws4@^1.8.0:
 axe-core@^4.0.2:
   version "4.1.0"
   resolved "https://registry.npmjs.org/axe-core/-/axe-core-4.1.0.tgz#93d395e6262ecdde5cb52a5d06533d0a0c7bb4cd"
+
+axios@^0.21.0:
+  version "0.21.0"
+  resolved "https://registry.npmjs.org/axios/-/axios-0.21.0.tgz#26df088803a2350dff2c27f96fef99fe49442aca"
+  dependencies:
+    follow-redirects "^1.10.0"
 
 axobject-query@^2.2.0:
   version "2.2.0"
@@ -4517,7 +4522,7 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
 
-follow-redirects@^1.0.0:
+follow-redirects@^1.0.0, follow-redirects@^1.10.0:
   version "1.13.0"
   resolved "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.13.0.tgz#b42e8d93a2a7eea5ed88633676d6597bc8e384db"
 
@@ -8065,9 +8070,9 @@ rc-dropdown@^3.1.3, rc-dropdown@~3.2.0:
     classnames "^2.2.6"
     rc-trigger "^5.0.4"
 
-rc-field-form@~1.15.0:
-  version "1.15.1"
-  resolved "https://registry.npmjs.org/rc-field-form/-/rc-field-form-1.15.1.tgz#6121dc5e9557967424d38700d5336b6828203273"
+rc-field-form@~1.17.0:
+  version "1.17.2"
+  resolved "https://registry.npmjs.org/rc-field-form/-/rc-field-form-1.17.2.tgz#81b09d320f9b455673867bf3a1f5b2aac0fd0a15"
   dependencies:
     "@babel/runtime" "^7.8.4"
     async-validator "^3.0.3"
@@ -8124,6 +8129,14 @@ rc-motion@^2.0.0, rc-motion@^2.0.1, rc-motion@^2.2.0, rc-motion@^2.3.0:
     classnames "^2.2.1"
     rc-util "^5.2.1"
 
+rc-motion@^2.4.0:
+  version "2.4.1"
+  resolved "https://registry.npmjs.org/rc-motion/-/rc-motion-2.4.1.tgz#323f47c8635e6b2bc0cba2dfad25fc415b58e1dc"
+  dependencies:
+    "@babel/runtime" "^7.11.1"
+    classnames "^2.2.1"
+    rc-util "^5.2.1"
+
 rc-notification@~4.5.2:
   version "4.5.4"
   resolved "https://registry.npmjs.org/rc-notification/-/rc-notification-4.5.4.tgz#1292e163003db4b9162c856a4630e5d0f1359356"
@@ -8140,9 +8153,9 @@ rc-pagination@~3.1.0:
     "@babel/runtime" "^7.10.1"
     classnames "^2.2.1"
 
-rc-picker@~2.3.0:
-  version "2.3.4"
-  resolved "https://registry.npmjs.org/rc-picker/-/rc-picker-2.3.4.tgz#3c42f54b6389e205b0ce0b8257e380864429192d"
+rc-picker@~2.4.1:
+  version "2.4.3"
+  resolved "https://registry.npmjs.org/rc-picker/-/rc-picker-2.4.3.tgz#ad15ee1d85e4b3e213ec66215ecd39e6a09be995"
   dependencies:
     "@babel/runtime" "^7.10.1"
     classnames "^2.2.1"
@@ -8180,6 +8193,18 @@ rc-resize-observer@^0.2.0, rc-resize-observer@^0.2.1, rc-resize-observer@^0.2.3:
 rc-select@^11.1.1:
   version "11.5.0"
   resolved "https://registry.npmjs.org/rc-select/-/rc-select-11.5.0.tgz#360d2762207c2fef2622e7fcc542fc94dfc9d10f"
+  dependencies:
+    "@babel/runtime" "^7.10.1"
+    classnames "2.x"
+    rc-motion "^2.0.1"
+    rc-trigger "^5.0.4"
+    rc-util "^5.0.1"
+    rc-virtual-list "^3.2.0"
+    warning "^4.0.3"
+
+rc-select@^11.5.2:
+  version "11.5.2"
+  resolved "https://registry.npmjs.org/rc-select/-/rc-select-11.5.2.tgz#554f1c0e82c854642c410677c458f888b20c2306"
   dependencies:
     "@babel/runtime" "^7.10.1"
     classnames "2.x"
@@ -8265,7 +8290,7 @@ rc-tooltip@^5.0.1, rc-tooltip@~5.0.0:
     "@babel/runtime" "^7.11.2"
     rc-trigger "^5.0.0"
 
-rc-tree-select@~4.1.1:
+rc-tree-select@^4.1.3, rc-tree-select@~4.1.1:
   version "4.1.3"
   resolved "https://registry.npmjs.org/rc-tree-select/-/rc-tree-select-4.1.3.tgz#1f88b7bf46652f9962ce425f8760a8f891fb5b78"
   dependencies:
@@ -9935,7 +9960,7 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.npmjs.org/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
-typescript@^4.0.3:
+typescript@4.0.5:
   version "4.0.5"
   resolved "https://registry.npmjs.org/typescript/-/typescript-4.0.5.tgz#ae9dddfd1069f1cb5beb3ef3b2170dd7c1332389"
 
