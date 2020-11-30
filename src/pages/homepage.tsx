@@ -13,12 +13,20 @@ import ProLayout, {
 import React, { useState } from 'react';
 
 // import api from './app/api';
+import axios from 'axios';
 
 interface Props {}
 const Component: React.FC<Props> = ({children}) => {
   // api.getHomepageData().then((e)=>{
   //   console.log(e)
   // })
+
+  const _api = axios.create({
+    baseURL: 'https://www.voyz.pro/api/',
+    timeout: 1000,
+  });
+
+  _api.post('/homepageModules').then((e)=>{console.log(e)})
 
   const defaultProps = {
     route: {

@@ -40,9 +40,9 @@ export default function ajax<T>(method: Method, url: string, params: {[key: stri
 //     }
 //     return false;
 //   });
-    console.log('url',url);
-    url = 'https://www.voyz.pro'+url
     
+    url = 'https://www.voyz.pro'+url
+    console.log('url',url);
 
 
   return request.request({method, url, params, data}).then((response) => response.data);
