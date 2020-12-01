@@ -1,4 +1,4 @@
-import './hompage.css'
+import './scss/homepage.scss'
 
 import {
   CrownOutlined,
@@ -16,7 +16,6 @@ import api from './app/api';
 
 interface Props {}
 const Component: React.FC<Props> = ({children}) => {
-  
 
   useEffect(() => {
     // 请求接口
