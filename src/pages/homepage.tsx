@@ -1,6 +1,5 @@
 import './hompage.css'
 
-import { Avatar, Switch } from 'antd';
 import {
   CrownOutlined,
   SmileOutlined,
@@ -10,23 +9,24 @@ import ProLayout, {
   DefaultFooter,
   PageContainer,
 } from '@ant-design/pro-layout';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-// import api from './app/api';
-import axios from 'axios';
+import { Avatar } from 'antd';
+import api from './app/api';
 
 interface Props {}
 const Component: React.FC<Props> = ({children}) => {
-  // api.getHomepageData().then((e)=>{
-  //   console.log(e)
-  // })
+  
 
-  const _api = axios.create({
-    baseURL: 'https://www.voyz.pro/api/',
-    timeout: 1000,
-  });
-
-  _api.post('/homepageModules').then((e)=>{console.log(e)})
+  useEffect(() => {
+    // 请求接口
+    api.HomepageModules({
+      'position':3
+    }).then((e)=>{
+      console.log(e);
+      setLoading(false);
+    })
+  }, [])
 
   const defaultProps = {
     route: {
@@ -98,92 +98,24 @@ const Component: React.FC<Props> = ({children}) => {
     },
   }
 
-  const [loading, setLoading] = useState(false);
-  const [collapsed, setCollapsed] = useState(true);
-  const [menu, setMenu] = useState(true);
-  const [header, setHeader] = useState(true);
-  const [footer, setFooter] = useState(true);
-  const [menuHeader, setMenuHeader] = useState(true);
-  const [right, setRight] = useState(true);
-  const [pure, setPure] = useState(false);
-  const [collapsedButtonRender, setCollapsedButtonRender] = useState(true);
+  const [loading, setLoading] = useState(true);
+  const [collapsed, setCollapsed] = useState(false);
+  const menu = true;
+  const header = true;
+  const footer = true;
+  const menuHeader = true;
+  const right = true;
+  const collapsedButtonRender = true;
+
+  // const [menu, setMenu] = useState(true);
+  // const [header, setHeader] = useState(true);
+  // const [footer, setFooter] = useState(true);
+  // const [menuHeader, setMenuHeader] = useState(true);
+  // const [right, setRight] = useState(true);
+  // const [collapsedButtonRender, setCollapsedButtonRender] = useState(true);
 
   return (
     <>
-      <Switch
-        checked={loading}
-        onChange={(e) => setLoading(e)}
-        style={{
-          margin: 8,
-        }}
-      />
-      loading 状态
-      <Switch
-        checked={collapsed}
-        onChange={(e) => setCollapsed(e)}
-        style={{
-          margin: 8,
-        }}
-      />
-      折叠layout
-      <Switch
-        checked={menu}
-        onChange={(e) => setMenu(e)}
-        style={{
-          margin: 8,
-        }}
-      />
-      显示菜单
-      <Switch
-        checked={collapsedButtonRender}
-        onChange={(e) => setCollapsedButtonRender(e)}
-        style={{
-          margin: 8,
-        }}
-      />
-      显示折叠按钮
-      <Switch
-        checked={header}
-        onChange={(e) => setHeader(e)}
-        style={{
-          margin: 8,
-        }}
-      />
-      显示顶栏
-      <Switch
-        checked={menuHeader}
-        onChange={(e) => setMenuHeader(e)}
-        style={{
-          margin: 8,
-        }}
-      />
-      显示菜单头
-      <Switch
-        checked={footer}
-        onChange={(e) => setFooter(e)}
-        style={{
-          margin: 8,
-        }}
-      />
-      显示页脚
-      <Switch
-        checked={right}
-        onChange={(e) => setRight(e)}
-        style={{
-          margin: 8,
-        }}
-      />
-      显示顶栏右侧
-      <Switch
-        checked={pure}
-        onChange={(e) => setPure(e)}
-        style={{
-          margin: 8,
-        }}
-      />
-      清爽模式
-      <br />
-      <br />
       <ProLayout
         {...defaultProps}
         style={{
@@ -211,7 +143,6 @@ const Component: React.FC<Props> = ({children}) => {
         location={{
           pathname: '/welcome',
         }}
-        pure={pure}
         footerRender={() => (footer ? <DefaultFooter /> : null)}
       >
         <PageContainer content="欢迎使用">Hello World</PageContainer>

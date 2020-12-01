@@ -2,7 +2,10 @@ import axios, {AxiosError, AxiosResponse, Method} from 'axios';
 
 import {CustomError} from '../common/error';
 
-const request = axios.create();
+const request = axios.create({
+    baseURL: 'https://www.voyz.pro/api/',
+    timeout: 1000,
+});
 
 request.interceptors.request.use((req) => {
   return req;
@@ -32,18 +35,6 @@ export default function ajax<T>(method: Method, url: string, params: {[key: stri
     }
     return '';
   });
-//   Object.keys(initEnv.apiServerPath).some((key) => {
-//     const reg = new RegExp(key);
-//     if (reg.test(url)) {
-//       url = url.replace(reg, initEnv.apiServerPath[key]);
-//       return true;
-//     }
-//     return false;
-//   });
-    
-    url = 'https://www.voyz.pro'+url
-    console.log('url',url);
-
 
   return request.request({method, url, params, data}).then((response) => response.data);
 }
