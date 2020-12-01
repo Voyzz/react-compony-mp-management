@@ -1,18 +1,14 @@
-import './scss/homepage.scss'
+import './scss/homepage.scss';
 
-import {
-  CrownOutlined,
-  SmileOutlined,
-  TabletOutlined,
-} from '@ant-design/icons';
-import ProLayout, {
-  DefaultFooter,
-  PageContainer,
-} from '@ant-design/pro-layout';
-import React, { useEffect, useState } from 'react';
+import { Breadcrumb, Layout, Menu } from 'antd';
+import React, { useEffect } from 'react';
 
-import { Avatar } from 'antd';
 import api from './app/api';
+import homepageConfig from './config';
+
+const { SubMenu } = Menu;
+const { Header, Content, Sider } = Layout;
+
 
 interface Props {}
 const Component: React.FC<Props> = ({children}) => {
@@ -22,130 +18,71 @@ const Component: React.FC<Props> = ({children}) => {
     api.HomepageModules({
       'position':3
     }).then((e)=>{
-      console.log(e);
-      setLoading(false);
+      console.log(homepageConfig);
     })
   }, [])
 
-  const defaultProps = {
-    route: {
-      path: '/',
-      routes: [
-        {
-          path: '/welcome',
-          name: '欢迎',
-          icon: <SmileOutlined />,
-          component: './Welcome',
-        },
-        {
-          path: '/admin',
-          name: '模块配置',
-          icon: <CrownOutlined />,
-          access: 'canAdmin',
-          component: './Admin',
-          routes: [
-            {
-              path: '/admin/sub-page',
-              name: '主页',
-              icon: <CrownOutlined />,
-              component: './Welcome',
-            },
-            {
-              path: '/admin/sub-page2',
-              name: '二级页面',
-              icon: <CrownOutlined />,
-              component: './Welcome',
-            },
-            {
-              path: '/admin/sub-page3',
-              name: '三级页面',
-              icon: <CrownOutlined />,
-              component: './Welcome',
-            },
-          ],
-        },
-        {
-          name: '列表页',
-          icon: <TabletOutlined />,
-          path: '/list',
-          component: './ListTableList',
-          routes: [
-            {
-              path: '/list/sub-page',
-              name: '一级列表页面',
-              icon: <CrownOutlined />,
-              component: './Welcome',
-            },
-            {
-              path: '/list/sub-page2',
-              name: '二级列表页面',
-              icon: <CrownOutlined />,
-              component: './Welcome',
-            },
-            {
-              path: '/list/sub-page3',
-              name: '三级列表页面',
-              icon: <CrownOutlined />,
-              component: './Welcome',
-            },
-          ],
-        },
-      ],
-    },
-    location: {
-      pathname: '/',
-    },
-  }
-
-  const [loading, setLoading] = useState(true);
-  const [collapsed, setCollapsed] = useState(false);
-  const menu = true;
-  const header = true;
-  const footer = true;
-  const menuHeader = true;
-  const right = true;
-  const collapsedButtonRender = true;
-
-  // const [menu, setMenu] = useState(true);
-  // const [header, setHeader] = useState(true);
-  // const [footer, setFooter] = useState(true);
-  // const [menuHeader, setMenuHeader] = useState(true);
-  // const [right, setRight] = useState(true);
-  // const [collapsedButtonRender, setCollapsedButtonRender] = useState(true);
-
+	const { header:_header,sider:_sider } = homepageConfig;
   return (
     <>
-      <ProLayout
-        {...defaultProps}
-        style={{
-          // height: 500,
-          height:document.body.clientHeight
-        }}
-        logo={(
-          <></>
-        )}
-        menuHeaderRender={menuHeader ? undefined : false}
-        headerRender={header ? undefined : false}
-        collapsedButtonRender={collapsedButtonRender ? undefined : false}
-        menuRender={(_, dom) => (menu ? dom : null)}
-        breakpoint={false}
-        collapsed={collapsed}
-        loading={loading}
-        onCollapse={setCollapsed}
-        rightContentRender={() =>
-          right ? (
-            <div style={{width:0,overflow: 'hidden',}}>
-              <Avatar src="https://avatars1.githubusercontent.com/u/8186664?s=460&v=4" />
-            </div>
-          ) : null
-        }
-        location={{
-          pathname: '/welcome',
-        }}
-        footerRender={() => (footer ? <DefaultFooter /> : null)}
-      >
-        <PageContainer content="欢迎使用">Hello World</PageContainer>
-      </ProLayout>
+    <Layout className="container">
+			{/* Header */}
+      <Header className="header">
+        <Menu theme={_header.theme} mode="horizontal" defaultSelectedKeys={['2']}>
+          {
+            _header.titleList.map((r:string,i:number)=>{
+              return (
+                <Menu.Item key="i">{r}</Menu.Item>
+              )
+            })
+          }
+        </Menu>
+      </Header>
+			{/* Sider */}
+      <Layout>
+        <Sider width={250} className="site-layout-background">
+          <Menu
+            mode="inline"
+            defaultSelectedKeys={['1']}
+            defaultOpenKeys={['sub1']}
+            style={{ height: '100%', borderRight: 0 }}
+          >
+						{
+							_sider.subMenuList.map((r:any,i:number)=>{
+								return (
+									<SubMenu key={r.key} icon={<r.icon />} title={r.title}>
+										{
+											r.itemList.map((item:any,idx:number)=>{
+												return (
+													<Menu.Item key={item.key}>{item.subtitle}</Menu.Item>
+												)
+											})
+										}
+									</SubMenu>
+								)
+							})
+						}
+          </Menu>
+        </Sider>
+        <Layout style={{ padding: '0 24px 24px' }}>
+          <Breadcrumb style={{ margin: '16px 0' }}>
+            <Breadcrumb.Item>Home</Breadcrumb.Item>
+            <Breadcrumb.Item>List</Breadcrumb.Item>
+            <Breadcrumb.Item>App</Breadcrumb.Item>
+          </Breadcrumb>
+          <Content
+            className="site-layout-background"
+            style={{
+              padding: 24,
+              margin: 0,
+              minHeight: 280,
+            }}
+          >
+            Content
+          </Content>
+        </Layout>
+      </Layout>
+    </Layout>
     </>
   );
 };
