@@ -4,7 +4,6 @@ import {CustomError} from '../common/error';
 
 const request = axios.create({
     baseURL: 'https://www.voyz.pro/api/',
-    timeout: 1000,
 });
 
 request.interceptors.request.use((req) => {

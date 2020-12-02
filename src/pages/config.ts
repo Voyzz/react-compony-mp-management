@@ -3,9 +3,7 @@ const homepageConfig: {[key: string] : any} = {
 	// 头部导航配置
 	'header':{
 		titleList:[
-			'nav 1',
-			'nav 2',
-			'nav 3',
+			'小程序',
 		],
 		theme:"dark",
 	},
@@ -16,10 +14,10 @@ const homepageConfig: {[key: string] : any} = {
 				'key':'sub1',
 				'icon':UserOutlined,
 				'itemList':[
-					{ 'key':'1','subtitle':'option1' },
-					{ 'key':'2','subtitle':'option1' },
-					{ 'key':'3','subtitle':'option1' },
-					{ 'key':'4','subtitle':'option1' }
+					{ 'key':'0_0','subtitle':'主页' },
+					{ 'key':'0_1','subtitle':'公司简介' },
+					{ 'key':'0_2','subtitle':'商品页' },
+					{ 'key':'0_3','subtitle':'个人中心' }
 				]
 			},
 			{
@@ -27,10 +25,10 @@ const homepageConfig: {[key: string] : any} = {
 				'key':'sub2',
 				'icon':LaptopOutlined,
 				'itemList':[
-					{ 'key':'5','subtitle':'option1' },
-					{ 'key':'6','subtitle':'option1' },
-					{ 'key':'7','subtitle':'option1' },
-					{ 'key':'8','subtitle':'option1' }
+					{ 'key':'1_0','subtitle':'option1' },
+					{ 'key':'1_1','subtitle':'option1' },
+					{ 'key':'1_2','subtitle':'option1' },
+					{ 'key':'1_3','subtitle':'option1' }
 				]
 			},
 			{
@@ -38,10 +36,10 @@ const homepageConfig: {[key: string] : any} = {
 				'key':'sub3',
 				'icon':NotificationOutlined,
 				'itemList':[
-					{ 'key':'1','subtitle':'option1' },
-					{ 'key':'2','subtitle':'option1' },
-					{ 'key':'3','subtitle':'option1' },
-					{ 'key':'4','subtitle':'option1' }
+					{ 'key':'2_0','subtitle':'option1' },
+					{ 'key':'2_1','subtitle':'option1' },
+					{ 'key':'2_2','subtitle':'option1' },
+					{ 'key':'2_3','subtitle':'option1' }
 				]
 			},
 		]
