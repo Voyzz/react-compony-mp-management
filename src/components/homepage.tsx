@@ -1,14 +1,13 @@
 import './scss/homepage.scss';
 
-import { Button, Card, Collapse, Form, Input, notification } from 'antd';
-import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import React, { useEffect, useState } from 'react';
 
+import { Collapse } from 'antd';
 import Header from './homepage/header';
+import Search from './homepage/search';
 import api from '../api';
 
 const { Panel } = Collapse;
-const {Meta} = Card;
 
 const _titleList:{[key:string]:string} = {
   'header':'轮播图',
@@ -20,9 +19,7 @@ const _titleList:{[key:string]:string} = {
 
 interface Props {}
 const Component: React.FC<Props> = ({children}) => {
-  const [form] = Form.useForm();
   const [currModuleData, setCurrModuleData] = useState([]);
-  const [reFetchApi, setReFetchApi] = useState(0)
 
   // ----------------- Efect -----------------
   useEffect(() => {
@@ -31,89 +28,23 @@ const Component: React.FC<Props> = ({children}) => {
       setCurrModuleData(res);
       console.log(res);
     })
-  }, [reFetchApi]);
-
-  // 通知提醒框
-  const openNotification = (args:any) => {
-    notification.open(args);
-  };
+  }, []);
 
   const renderModules = (_module:{[key:string]:any},idx:number) => {
     const { module_type,module_data } = _module;
     // Header
     if(module_type === 'header'){
       return (
-        <Header module_data={module_data} />
+        <Header module_data={module_data}/>
       )
     }
 
     // Search
     else if(module_type === 'search'){
-
-      // 更新搜索框占位词
-      const onFinish = (values:any) => {
-        let _module_data = {...module_data};
-        if(!!values.placeholder){
-          _module_data.placeholder = values.placeholder;
-          api.HomepageModules({
-            'pType':'update',
-            'moduleType':module_type,
-            'moduleData':_module_data
-          }).then((res:any)=>{
-            form.resetFields();
-            console.log(res);
-
-            const args = {
-              message: '更新成功',
-              description:
-                `搜索框占位词更新为："${values.placeholder}"`,
-              duration: 5000,
-            };
-            openNotification(args);
-
-            setReFetchApi(reFetchApi+1)
-          })
-        }
-      };
-
       return (
-        <div className='module_search'>
-          <Form form={form} name="control-hooks" onFinish={onFinish}>
-            <Form.Item
-              label="更改搜索框占位词"
-              style={{height:20}}
-            >
-            </Form.Item>
-            <Form.Item
-              name="placeholder"
-              rules={[{ required: true }]}
-              style={{width:400}}
-            >
-              <Input placeholder={`"${module_data.placeholder}"`}/>
-            </Form.Item>
-            <Form.Item
-              noStyle
-              shouldUpdate={(prevValues, currentValues) => prevValues.gender !== currentValues.gender}
-            >
-              {({ getFieldValue }) => {
-                return getFieldValue('gender') === 'other' ? (
-                  <Form.Item name="customizeGender" label="Customize Gender" rules={[{ required: true }]}>
-                    <Input />
-                  </Form.Item>
-                ) : null;
-              }}
-            </Form.Item>
-            <Form.Item>
-              <Button type="primary" htmlType="submit">
-                更新
-              </Button>
-            </Form.Item>
-          </Form>
-        </div>
+        <Search module_data={module_data} module_type={module_type} />
       )
     }
-
-    
   }
 
   return (

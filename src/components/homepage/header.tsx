@@ -1,8 +1,9 @@
 import '../scss/homepage/header.scss'
 
-import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import { Button, Card, Upload, message } from 'antd';
+import { DeleteOutlined, UploadOutlined } from '@ant-design/icons';
+import { getSignature, serverInfo } from '../../utils/upload';
 
-import { Card } from 'antd';
 import React from 'react';
 
 const {Meta} = Card;
@@ -12,9 +13,28 @@ interface Props {
 }
 const Component: React.FC<Props> = (props) => {
 
-	// const module_data:Props
 	const { module_data } = props;
+	const { baseUrl,bucket,filePath } = serverInfo;
 
+	const uploadProps = {
+		name: 'file1',
+		action: `${baseUrl}${bucket}${filePath}file1.jpg`,
+		headers: {
+			'Authorization': `UPYUN voyz:${getSignature('file1')}`,
+			'Date': (new Date().toUTCString()),
+		},
+		// method:'PUT',
+		onChange(info:any) {
+			if (info.file.status !== 'uploading') {
+				console.log(info.file, info.fileList);
+			}
+			if (info.file.status === 'done') {
+				message.success(`${info.file.name} file uploaded successfully`);
+			} else if (info.file.status === 'error') {
+				message.error(`${info.file.name} file upload failed.`);
+			}
+		},
+	};
 
   return (
     <div className='module_header'>
@@ -31,7 +51,9 @@ const Component: React.FC<Props> = (props) => {
 							}
 							key={i}
 							actions={[
-								<EditOutlined key="edit" />,
+								<Upload {...uploadProps} method={'put'}>
+									<Button icon={<UploadOutlined />}>更换图片</Button>
+								</Upload>,
 								<DeleteOutlined key='delete'/>
 							]}
 						>
