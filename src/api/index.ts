@@ -1,4 +1,4 @@
-import ajax from '../../common/request';
+import ajax from './request';
 
 export class API {
   public HomepageModules(params: {[key: string]: any} = {}):Promise<void> {

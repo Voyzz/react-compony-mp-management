@@ -1,0 +1,11 @@
+.module_header{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0;
+    img{
+        width: 280;
+        height: 210;
+    }
+}

@@ -10,17 +10,6 @@
             margin-bottom: 12px;
             border: 0px;
             overflow: hidden;
-            .module_header{
-                display: flex;
-                flex-direction: row;
-                justify-content: flex-start;
-                align-items: center;
-                padding: 0;
-                img{
-                    width: 280;
-                    height: 210;
-                }
-            }
             .module_search{
                 .form_input{
                     width:100 !important

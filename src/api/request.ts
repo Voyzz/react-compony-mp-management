@@ -1,6 +1,6 @@
 import axios, {AxiosError, AxiosResponse, Method} from 'axios';
 
-import {CustomError} from '../common/error';
+import {CustomError} from './error';
 
 const request = axios.create({
     baseURL: 'https://www.voyz.pro/api/',

@@ -8,8 +8,7 @@ import ErrorPage from './Error';
 import Homeland from '../components/homeland';
 import Homepage from '../components/homepage';
 import Introduction from '../components/introduction';
-import api from './app/api';
-import homepageConfig from './config';
+import adminConfig from '../config/adminPageConfig';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -17,7 +16,7 @@ const { Header, Content, Sider } = Layout;
 
 interface Props {}
 const Component: React.FC<Props> = ({children}) => {
-  const { header:_header,sider:_sider } = homepageConfig;
+  const { header:_header,sider:_sider } = adminConfig;
 
   // ----------------- State -----------------
   const [breadcrumb, setBreadcrumb] = useState([
@@ -46,12 +45,6 @@ const Component: React.FC<Props> = ({children}) => {
 
   // ----------------- Efect -----------------
   useEffect(() => {
-    // 请求接口
-    api.HomepageModules({
-      'position':3
-    }).then((e)=>{
-      // console.log(homepageConfig);
-    })
   }, []);
 
   const onMenuItemSelected = (item:any) => {
