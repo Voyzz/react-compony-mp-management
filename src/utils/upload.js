@@ -1,17 +1,26 @@
-import hmacsha1 from 'hmacsha1';
-import md5 from 'md5';
-import serverInfo from '../config/uploadServer'
+import COS from 'cos-js-sdk-v5';
+import cosServerInfo from '../config/cosServer';
 
-const getSignature = (fileName='none') => {
-    const date = new Date().toGMTString();
-    const { bucket,operator,password,filePath } = serverInfo;
+const { bucket,SecretId,SecretKey,region } = cosServerInfo;
 
-    const signature = `PUT&/${bucket}${filePath}${fileName}&${date}`;
-    const md5_signature = md5(signature);
-    const hash = hmacsha1(md5_signature,signature);
-    const base64_signature = new Buffer(hash).toString('base64');
+const cos = new COS({ SecretId,SecretKey });
 
-    return base64_signature;
+const uploadFile = (file,fileName,callback) => {
+
+    cos.putObject({
+        Bucket: bucket, /* 必须 */
+        Region: region,     /* 存储桶所在地域，必须字段 */
+        Key: fileName,              /* 必须 */
+        StorageClass: 'STANDARD',
+        Body: file, // 上传文件对象
+        onProgress: (progressData) => {
+            const responsData = JSON.stringify(progressData);
+            console.log(responsData);
+        }
+    }, function(err, data) {
+        console.log(err || data);
+        callback(err || data);
+    });
 }
 
-export { getSignature,serverInfo };
+export { uploadFile };

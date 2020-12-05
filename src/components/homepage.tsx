@@ -35,7 +35,7 @@ const Component: React.FC<Props> = ({children}) => {
     // Header
     if(module_type === 'header'){
       return (
-        <Header module_data={module_data}/>
+        <Header module_data={module_data} module_type={module_type}/>
       )
     }
 
