@@ -1,9 +1,10 @@
 import axios, {AxiosError, AxiosResponse, Method} from 'axios';
 
 import {CustomError} from './error';
+import Server from '../config/server';
 
 const request = axios.create({
-    baseURL: 'https://www.voyz.pro/api/',
+    baseURL: Server.baseUrl,
 });
 
 request.interceptors.request.use((req) => {

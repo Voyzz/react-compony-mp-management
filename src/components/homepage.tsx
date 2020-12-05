@@ -1,10 +1,12 @@
-import './scss/homepage.scss';
+import '../scss/conponents/homepage.scss';
 
 import React, { useEffect, useState } from 'react';
 
 import { Collapse } from 'antd';
+import Goods from './homepage/goods';
 import Header from './homepage/header';
 import Search from './homepage/search';
+import Slogan from './homepage/slogan';
 import api from '../api';
 
 const { Panel } = Collapse;
@@ -45,12 +47,26 @@ const Component: React.FC<Props> = ({children}) => {
         <Search module_data={module_data} module_type={module_type} />
       )
     }
+
+    // Goods
+    else if(module_type === 'goods'){
+      return (
+        <Goods />
+      )
+    }
+
+    // Slogan
+    else if(module_type === 'slogan'){
+      return (
+        <Slogan module_data={module_data} module_type={module_type} />
+      )
+    }
   }
 
   return (
-    <div className="container">
+    <div className="container" style={{width:'81vw',paddingTop:'2vw'}}>
       <Collapse
-        style={{ width:'80%', fontSize:16 }}
+        style={{ fontSize:16,backgroundColor: '#fff' }}
         defaultActiveKey={[]}
         bordered={false}
         className="site-collapse-custom-collapse"

@@ -1,4 +1,4 @@
-import './scss/Admin.scss';
+import '../scss/pages/Admin.scss';
 
 import { Breadcrumb, Layout, Menu } from 'antd';
 import React, { useEffect, useReducer, useState } from 'react';
@@ -77,8 +77,8 @@ const Component: React.FC<Props> = ({children}) => {
         </Menu>
       </Header>
 			{/* Sider */}
-      <Layout>
-        <Sider width={250} className="sider-site-layout-background">
+      <Layout style={{height:'90vh'}}>
+        <Sider width={'15vw'} className="sider-site-layout-background">
           <Menu
             mode="inline"
             defaultSelectedKeys={['0_0']}
@@ -108,8 +108,9 @@ const Component: React.FC<Props> = ({children}) => {
 						}
           </Menu>
         </Sider>
-        <Layout style={{ padding: '0 24px 24px' }}>
-          <Breadcrumb style={{ margin: '16px 0' }}>
+        {/* Content */}
+        <Layout style={{ padding: '0 2vw 2vw',width:'85vw' }}>
+          <Breadcrumb style={{ margin: '16px 0',width:'85vw' }}>
             {
               breadcrumb.map((r:string,i:number)=>{
                 return (
@@ -118,13 +119,7 @@ const Component: React.FC<Props> = ({children}) => {
               })
             }
           </Breadcrumb>
-          <Content
-            className="content-site-layout-background"
-            style={{
-              padding: 24,
-              margin: 0,
-            }}
-          >
+          <Content className="content-site-layout-background">
             {contentState}
           </Content>
         </Layout>
