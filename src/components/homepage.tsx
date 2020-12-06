@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { Collapse } from 'antd';
 import Goods from './homepage/goods';
 import Header from './homepage/header';
+import News from './homepage/news';
 import Search from './homepage/search';
 import Slogan from './homepage/slogan';
 import api from '../api';
@@ -59,6 +60,13 @@ const Component: React.FC<Props> = ({children}) => {
     else if(module_type === 'slogan'){
       return (
         <Slogan module_data={module_data} module_type={module_type} />
+      )
+    }
+
+    // Slogan
+    else if(module_type === 'news'){
+      return (
+        <News module_data={module_data} module_type={module_type} />
       )
     }
   }
