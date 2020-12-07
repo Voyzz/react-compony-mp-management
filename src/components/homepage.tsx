@@ -72,10 +72,9 @@ const Component: React.FC<Props> = ({children}) => {
   }
 
   return (
-    <div className="container" style={{width:'81vw',paddingTop:'2vw'}}>
+    <div className="container" style={{width:'81vw',paddingTop:'2vw',margin:0}}>
       <Collapse
-        style={{ fontSize:16,backgroundColor: '#fff' }}
-        defaultActiveKey={[]}
+        style={{ fontSize:16,backgroundColor: '#fff',width:'80.1vw',margin:0 }}
         bordered={false}
         className="site-collapse-custom-collapse"
         >
