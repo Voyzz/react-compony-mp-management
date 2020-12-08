@@ -1,4 +1,4 @@
-import '../../scss/conponents/goods.scss'
+import '../../scss/components/goods.scss'
 
 import React from 'react';
 

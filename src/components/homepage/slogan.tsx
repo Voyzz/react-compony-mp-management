@@ -1,4 +1,4 @@
-import '../../scss/conponents/slogan.scss'
+import '../../scss/components/slogan.scss'
 
 import { Button, Form, Input, notification } from 'antd';
 import React,{useState} from 'react';

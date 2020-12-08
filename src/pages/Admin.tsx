@@ -77,7 +77,7 @@ const Component: React.FC<Props> = ({children}) => {
         </Menu>
       </Header>
 			{/* Sider */}
-      <Layout style={{height:'90vh'}}>
+      <Layout style={{height:'100vh'}}>
         <Sider width={'15vw'} className="sider-site-layout-background">
           <Menu
             mode="inline"
@@ -109,7 +109,7 @@ const Component: React.FC<Props> = ({children}) => {
           </Menu>
         </Sider>
         {/* Content */}
-        <Layout style={{ padding: '0 2vw 2vw',width:'85vw' }}>
+        <Layout style={{ padding: '0 2vw 2vw',width:'85vw',height:'100%' }}>
           <Breadcrumb style={{ margin: '16px 0',width:'85vw' }}>
             {
               breadcrumb.map((r:string,i:number)=>{

@@ -1,4 +1,4 @@
-import '../scss/conponents/homepage.scss';
+import '../scss/components/homepage.scss';
 
 import React, { useEffect, useState } from 'react';
 

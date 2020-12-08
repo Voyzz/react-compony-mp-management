@@ -1,4 +1,4 @@
-import '../../scss/conponents/header.scss'
+import '../../scss/components/header.scss'
 
 import { Button, Card, Upload, notification } from 'antd';
 import { DeleteOutlined, PlusOutlined, UploadOutlined } from '@ant-design/icons';

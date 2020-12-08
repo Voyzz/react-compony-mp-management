@@ -1,4 +1,4 @@
-import '../../scss/conponents/news.scss'
+import '../../scss/components/news.scss'
 
 import { Button, Collapse, Form, Image, Input, Popconfirm, Spin, Upload, notification } from 'antd';
 import React,{useState} from 'react';
@@ -146,7 +146,7 @@ const Component: React.FC<Props> = (props) => {
             >
             <Collapse
                 accordion={true}
-                ghost={true}
+                // ghost={true}
                 >
                 {
                     _renderList.map((panel:any,idx:number) => {
@@ -154,7 +154,7 @@ const Component: React.FC<Props> = (props) => {
                         return (
                             <Panel 
                                 header={idx === 0 ? (
-                                    <Button type="primary">添加新闻</Button>
+                                    <Button type="primary" style={{marginLeft:'1vw'}}>添加新闻</Button>
                                 ) : panel.title}
                                 key={idx}
                                 showArrow={idx === 0 ? false:true}
