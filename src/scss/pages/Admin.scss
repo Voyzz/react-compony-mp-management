@@ -4,14 +4,17 @@
     // width:100vw;
     padding:0;
     .header {
-        height:10vh;
+        height:8vh;
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
     }
     .content-site-layout-background {
+        // background: #F0F2F5;
         background: #fff;
+        // position: absolute;
+        // left:
         // height:100vh;
     }
 }

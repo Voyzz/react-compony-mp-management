@@ -109,7 +109,7 @@ const Component: React.FC<Props> = ({children}) => {
           </Menu>
         </Sider>
         {/* Content */}
-        <Layout style={{ padding: '0 2vw 2vw',width:'85vw',height:'100%' }}>
+        <Layout style={{ padding: '0 2vw 2vw',width:'85vw' }}>
           <Breadcrumb style={{ margin: '16px 0',width:'85vw' }}>
             {
               breadcrumb.map((r:string,i:number)=>{

@@ -177,7 +177,7 @@ const Component: React.FC<Props> = (props) => {
                                         <Input placeholder={`"${data}"`}/>
                                     </Form.Item>
                                     <Form.Item name={['news', 'content']} label="新闻内容">
-                                        <Input.TextArea  placeholder={`"${content}"`}/>
+                                        <Input.TextArea  placeholder={`"${content}"`}  autoSize={true}/>
                                     </Form.Item>
                                     <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 2 }}>
                                         <Button type="primary" htmlType="submit">

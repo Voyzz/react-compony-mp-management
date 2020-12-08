@@ -1,8 +1,8 @@
 import '../scss/components/homepage.scss';
 
+import { Collapse, Spin } from 'antd';
 import React, { useEffect, useState } from 'react';
 
-import { Collapse } from 'antd';
 import Goods from './homepage/goods';
 import Header from './homepage/header';
 import News from './homepage/news';
@@ -23,13 +23,16 @@ const _titleList:{[key:string]:string} = {
 interface Props {}
 const Component: React.FC<Props> = ({children}) => {
   const [currModuleData, setCurrModuleData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false)
 
   // ----------------- Efect -----------------
   useEffect(() => {
+    setIsLoading(true);
     // 请求接口
     api.HomepageModules({}).then((res:any)=>{
       setCurrModuleData(res);
-      console.log(res);
+      setIsLoading(false);
+      // console.log(res);
     })
   }, []);
 
@@ -73,6 +76,7 @@ const Component: React.FC<Props> = ({children}) => {
 
   return (
     <div className="container" style={{width:'81vw',paddingTop:'2vw',margin:0}}>
+    <Spin spinning={isLoading} delay={500}>
       <Collapse
         style={{ fontSize:16,backgroundColor: '#fff',width:'80.1vw',margin:0 }}
         bordered={false}
@@ -82,18 +86,19 @@ const Component: React.FC<Props> = ({children}) => {
           currModuleData.length>0 && currModuleData.map((_module:{[key:string]:any},idx:number)=>{
             const { module_type } = _module;
             return (
-              <Panel
-                className="site-collapse-custom-panel"
-                key={idx} header={_titleList[module_type]}
-                >
-                <>
-                {renderModules(_module,idx)}
-                </>
-              </Panel>
+                <Panel
+                  className="site-collapse-custom-panel"
+                  key={idx} header={_titleList[module_type]}
+                  >
+                  <>
+                  {renderModules(_module,idx)}
+                  </>
+                </Panel>
             )
           })
         }
       </Collapse>
+    </Spin>
     </div>
   )
 }
