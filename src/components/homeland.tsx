@@ -3,9 +3,7 @@ import React from 'react';
 interface Props {}
 const Component: React.FC<Props> = ({children}) => {
   return (
-    <view>
-      <text>个人中心！</text>
-    </view>
+    <div>个人中心！</div>
   )
 }
 

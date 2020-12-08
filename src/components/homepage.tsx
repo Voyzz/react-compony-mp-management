@@ -75,10 +75,10 @@ const Component: React.FC<Props> = ({children}) => {
   }
 
   return (
-    <div className="container" style={{width:'81vw',paddingTop:'2vw',margin:0}}>
+    <div className="container" style={{width:'81vw'}}>
     <Spin spinning={isLoading} delay={500}>
       <Collapse
-        style={{ fontSize:16,backgroundColor: '#fff',width:'80.1vw',margin:0 }}
+        style={{ fontSize:16,backgroundColor: '#fff',width:'81vw',margin:0 }}
         bordered={false}
         className="site-collapse-custom-collapse"
         >

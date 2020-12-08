@@ -1,6 +1,6 @@
 import '../scss/pages/Admin.scss';
 
-import { Breadcrumb, Layout, Menu } from 'antd';
+import { Avatar, Breadcrumb, Layout, Menu } from 'antd';
 import React, { useEffect, useReducer, useState } from 'react';
 
 import Commodity from '../components/commodity';
@@ -70,14 +70,16 @@ const Component: React.FC<Props> = ({children}) => {
           {
             _header.titleList.map((r:string,i:number)=>{
               return (
-                <Menu.Item key={i}>{r}</Menu.Item>
+                <Menu.Item key={i} icon={(
+                  <Avatar src="https://lg-7pc5j6x4-1257302752.cos.ap-shanghai.myqcloud.com/logo.jpg" size={30}/>
+                )}>{r}</Menu.Item>
               )
             })
           }
         </Menu>
       </Header>
 			{/* Sider */}
-      <Layout style={{height:'100vh'}}>
+      <Layout style={{height:'94vh'}}>
         <Sider width={'15vw'} className="sider-site-layout-background">
           <Menu
             mode="inline"
@@ -109,7 +111,7 @@ const Component: React.FC<Props> = ({children}) => {
           </Menu>
         </Sider>
         {/* Content */}
-        <Layout style={{ padding: '0 2vw 2vw',width:'85vw' }}>
+        <Layout style={{ padding: '0 2vw 2vw'}}>
           <Breadcrumb style={{ margin: '16px 0',width:'85vw' }}>
             {
               breadcrumb.map((r:string,i:number)=>{
