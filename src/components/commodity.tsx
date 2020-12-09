@@ -1,9 +1,13 @@
+import '@/scss/components/commodity.scss';
+
 import React from 'react';
 
 interface Props {}
 const Component: React.FC<Props> = ({children}) => {
   return (
-    <div>商品页！</div>
+    <div className="commodity_container">
+      
+    </div>
   )
 }
 

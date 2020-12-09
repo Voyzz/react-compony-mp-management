@@ -1,4 +1,4 @@
-import '../../scss/components/header.scss'
+import '@/scss/components/header.scss'
 
 import { Button, Card, Upload, notification } from 'antd';
 import { DeleteOutlined, PlusOutlined, UploadOutlined } from '@ant-design/icons';
@@ -90,9 +90,10 @@ const Component: React.FC<Props> = (props) => {
 					currData.imgs && currData.imgs.length>0 && currData.imgs.map((r:any,i:number)=>{
 						return (
 							<Card
-								style={{ width: 280,marginRight:20 }}
-								cover={<img alt={'NO.'+(i+1)} src={r} style={{width: 280}}/>}
+								style={{width:600,marginRight: 20}}
+								cover={<img alt={'NO.'+(i+1)} src={r}/>}
 								key={i}
+								className="card_box"
 								actions={[
 									<Upload
 										customRequest={(res:any)=>{exchangeImg(res,i)}}

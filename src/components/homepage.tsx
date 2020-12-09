@@ -1,4 +1,4 @@
-import '../scss/components/homepage.scss';
+import '@/scss/components/homepage.scss'
 
 import { Collapse, Spin } from 'antd';
 import React, { useEffect, useState } from 'react';
@@ -75,30 +75,29 @@ const Component: React.FC<Props> = ({children}) => {
   }
 
   return (
-    <div className="container" style={{width:'81vw'}}>
-    <Spin spinning={isLoading} delay={500}>
-      <Collapse
-        style={{ fontSize:16,backgroundColor: '#fff',width:'81vw',margin:0 }}
-        bordered={false}
-        className="site-collapse-custom-collapse"
-        >
-        {
-          currModuleData.length>0 && currModuleData.map((_module:{[key:string]:any},idx:number)=>{
-            const { module_type } = _module;
-            return (
-                <Panel
-                  className="site-collapse-custom-panel"
-                  key={idx} header={_titleList[module_type]}
-                  >
-                  <>
-                  {renderModules(_module,idx)}
-                  </>
-                </Panel>
-            )
-          })
-        }
-      </Collapse>
-    </Spin>
+    <div className="container">
+      <Spin spinning={isLoading} delay={500}>
+        <Collapse
+          bordered={false}
+          className="collapse"
+          >
+          {
+            currModuleData.length>0 && currModuleData.map((_module:{[key:string]:any},idx:number)=>{
+              const { module_type } = _module;
+              return (
+                  <Panel
+                    className="panel"
+                    key={idx} header={_titleList[module_type]}
+                    >
+                    <>
+                    {renderModules(_module,idx)}
+                    </>
+                  </Panel>
+              )
+            })
+          }
+        </Collapse>
+      </Spin>
     </div>
   )
 }

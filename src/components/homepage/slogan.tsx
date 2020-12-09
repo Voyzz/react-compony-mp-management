@@ -47,7 +47,7 @@ const Component: React.FC<Props> = (props) => {
 
 	return (
 		<div className='module_slogan'>
-            <Form {...layout} name="nest-messages" onFinish={onFinish} style={{width:'100%'}} form={form}>
+            <Form {...layout} name="nest-messages" onFinish={onFinish} style={{width:'100%'}} form={form} className="form_container">
                 <Form.Item name={['slogan', 'slogan_title']} label="主标题">
                     <Input placeholder={`"${slogan_title}"`}/>
                 </Form.Item>

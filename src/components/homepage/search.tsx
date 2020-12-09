@@ -1,4 +1,4 @@
-import '../../scss/components/header.scss'
+import '../../scss/components/search.scss'
 
 import { Button, Form, Input, notification } from 'antd';
 import React,{useState} from 'react';
@@ -60,7 +60,7 @@ const Component: React.FC<Props> = (props) => {
         <Form.Item
           name="placeholder"
           rules={[{ required: true }]}
-          style={{width:400}}
+          className="form_item"
         >
           <Input placeholder={`"${currData.placeholder}"`}/>
         </Form.Item>

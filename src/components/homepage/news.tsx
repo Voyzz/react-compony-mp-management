@@ -159,7 +159,7 @@ const Component: React.FC<Props> = (props) => {
                                 key={idx}
                                 showArrow={idx === 0 ? false:true}
                                 >
-                                <Form {...layout} name="news-messages" onFinish={(res:any)=>{onFinish(res,idx-1)}} style={{width:'100%'}} form={form}>
+                                <Form {...layout} name="news-messages" onFinish={(res:any)=>{onFinish(res,idx-1)}} className="form_container" form={form}>
                                     <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 2 }}>
                                         <Image
                                             width={'8vw'}
@@ -167,7 +167,7 @@ const Component: React.FC<Props> = (props) => {
                                             fallback={fallbackImg()}
                                         />
                                         <Upload showUploadList={false} customRequest={(res:any)=>{addImg(res,idx-1)}}>
-                                            <Button type="dashed" style={{width:'8vw',position:'absolute',left:0,bottom:0,backgroundColor:'#00000015',}}>{idx===0?'添加图片':'更换'}</Button>
+                                            <Button type="dashed" className="upload_button">{idx===0?'添加图片':'更换'}</Button>
                                         </Upload>
                                     </Form.Item>
                                     <Form.Item name={['news', 'title']} label="标题">

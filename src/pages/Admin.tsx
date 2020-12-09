@@ -63,7 +63,7 @@ const Component: React.FC<Props> = ({children}) => {
 
   return (
     <>
-    <Layout className="container">
+    <Layout className="admin_container">
 			{/* Header */}
       <Header className="header">
         <Menu theme={_header.theme} mode="horizontal" defaultSelectedKeys={['2']}>
@@ -79,8 +79,8 @@ const Component: React.FC<Props> = ({children}) => {
         </Menu>
       </Header>
 			{/* Sider */}
-      <Layout style={{height:'94vh'}}>
-        <Sider width={'15vw'} className="sider-site-layout-background">
+      <Layout className="bottom_layout">
+        <Sider className="sider_container" width={'12vw'}>
           <Menu
             mode="inline"
             defaultSelectedKeys={['0_0']}
@@ -111,8 +111,8 @@ const Component: React.FC<Props> = ({children}) => {
           </Menu>
         </Sider>
         {/* Content */}
-        <Layout style={{ padding: '0 2vw 2vw'}}>
-          <Breadcrumb style={{ margin: '16px 0',width:'85vw' }}>
+        <Layout className="content_layout">
+          <Breadcrumb className="breadcrumb">
             {
               breadcrumb.map((r:string,i:number)=>{
                 return (
@@ -121,7 +121,7 @@ const Component: React.FC<Props> = ({children}) => {
               })
             }
           </Breadcrumb>
-          <Content className="content-site-layout-background">
+          <Content className="content_container">
             {contentState}
           </Content>
         </Layout>

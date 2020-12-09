@@ -1,15 +1,17 @@
-
-.container{
-    .site-collapse-custom-collapse {
+.intro_container{
+    min-height: 85vh;
+    .collapse {
         background-color: #fff;
-        padding-left: 2vw;
-        padding-bottom: 1vw;
-        .site-collapse-custom-panel {
+        padding: 2vw;
+        flex-shrink: 1;
+        .panel {
             background: #f5f9fd;
             border-radius: 15px;
             margin-bottom: 1vw;
             border: 0px;
-            width: 77vw;
+            // width: 81vw;
+            flex:1;
+            font-size:20;
         }
     }
 }

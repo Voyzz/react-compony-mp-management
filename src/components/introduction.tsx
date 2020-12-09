@@ -55,30 +55,30 @@ const Component: React.FC<Props> = ({children}) => {
   }
 
   return (
-    <div className="container" style={{width:'81vw',paddingTop:'2vw',margin:0}}>
-    <Spin spinning={isLoading} delay={500}>
-      <Collapse
-        style={{ fontSize:16,backgroundColor: '#fff',width:'80.1vw',margin:0 }}
-        bordered={false}
-        className="site-collapse-custom-collapse"
-        >
-        {
-          currModuleData.length>0 && currModuleData.map((_module:{[key:string]:any},idx:number)=>{
-            const { module_type } = _module;
-            return (
-                <Panel
-                  className="site-collapse-custom-panel"
-                  key={idx} header={_titleList[module_type]}
-                  >
-                  <>
-                  {renderModules(_module,idx)}
-                  </>
-                </Panel>
-            )
-          })
-        }
-      </Collapse>
-    </Spin>
+    <div className="intro_container">
+      <Spin spinning={isLoading} delay={500}>
+        <Collapse
+          style={{ fontSize:16,backgroundColor: '#fff',width:'80.1vw',margin:0 }}
+          bordered={false}
+          className="collapse"
+          >
+          {
+            currModuleData.length>0 && currModuleData.map((_module:{[key:string]:any},idx:number)=>{
+              const { module_type } = _module;
+              return (
+                  <Panel
+                    className="panel"
+                    key={idx} header={_titleList[module_type]}
+                    >
+                    <>
+                    {renderModules(_module,idx)}
+                    </>
+                  </Panel>
+              )
+            })
+          }
+        </Collapse>
+      </Spin>
     </div>
   )
 }
