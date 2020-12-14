@@ -1,3 +1,25 @@
 .commodity_container {
     min-height: 85vh;
+    background-color: #fff;
+    padding-top: 30px;
+    padding-left: 50px;
+    padding-right: 100px;
+    .select_container {
+        display: flex;
+        position: relative;
+        .select_box {
+            width: 10vw;
+            margin-right: 1vw;
+        }
+        .upload_box {
+            margin-left: 50px;
+        }
+    }
+    .pro_list_container {
+        margin-top: 50px;
+        .pro_list {
+        
+        }
+    }
+    
 }
