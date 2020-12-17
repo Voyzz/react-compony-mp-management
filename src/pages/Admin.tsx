@@ -30,18 +30,18 @@ const Component: React.FC<Props> = ({children}) => {
   const contentReducer = (state:any,action:any) => {
     switch (action.key) {
       case '0_0':
-        return (<Homepage />);
-      case '0_1':
-        return (<Introduction />);
-      case '0_2':
         return (<Commodity />);
+      case '0_1':
+        return (<Homepage />);
+      case '0_2':
+        return (<Introduction />);
       case '0_3':
         return (<Homeland />);
       default:
         return (<ErrorPage />);
     }
   }
-  const [contentState, dispatch] = useReducer(contentReducer, (<Homepage />))
+  const [contentState, dispatch] = useReducer(contentReducer, (<Commodity />))
 
   // ----------------- Efect -----------------
   useEffect(() => {
