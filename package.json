@@ -67,6 +67,8 @@
     "react-dev-utils": "^11.0.0",
     "react-dom": "^17.0.1",
     "react-refresh": "^0.8.3",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
     "resolve": "1.18.1",
     "resolve-url-loader": "^3.1.2",
     "sass-loader": "8.0.2",
@@ -107,7 +109,9 @@
     ]
   },
   "devDependencies": {
-    "@ant-design/pro-layout": "^6.5.16"
+    "@ant-design/pro-layout": "^6.5.16",
+    "@types/react-router": "^5.1.8",
+    "@types/react-router-dom": "^5.1.6"
   },
   "jest": {
     "roots": [

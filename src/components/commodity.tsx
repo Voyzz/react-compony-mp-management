@@ -244,9 +244,35 @@ const Component: React.FC<Props> = ({children}) => {
     // 详情列表处理
     if(!!pro.pro_detail_list){
       pro.pro_detail_list.forEach((v:any,i:number) => {
-        if(!!v.content) setcurrContent(v.content);
-        if(!!v.detail_obj) setdetailObj(v.detail_obj);
-        if(!!v.detail_arr) setdetailArr(v.detail_arr);
+        if(!!v.content) {
+          setcurrContent(v.content);
+          form.setFieldsValue({
+            pro_detail_list:{
+                content:v.content
+            }
+          })
+        }
+        if(!!v.detail_obj) {
+          setdetailObj(v.detail_obj);
+          form.setFieldsValue({
+            pro_detail_list:{
+                detail_obj:v.detail_obj.map((r:any) => {
+                  return {
+                    key:r.key,
+                    value:r.value
+                  }
+                })
+            }
+          })
+        }
+        if(!!v.detail_arr) {
+          setdetailArr(v.detail_arr);
+          form.setFieldsValue({
+            pro_detail_list:{
+                detail_arr:v.detail_arr
+            }
+          })
+        }
       })
     }else{
       setcurrContent('');
@@ -257,6 +283,16 @@ const Component: React.FC<Props> = ({children}) => {
     // 价格列表处理
     if(!!pro.price_list){
       setcurrPriceList(pro.price_list);
+      form.setFieldsValue({
+        price_list:pro.price_list.map((r:any) => {
+          return {
+            price:r.price,
+            date:r.date,
+            currency:r.currency,
+            unit:r.unit
+          }
+        })
+      })
     }else{
       setcurrPriceList([]);
     }
@@ -306,7 +342,8 @@ const Component: React.FC<Props> = ({children}) => {
           'uid':'-'+currImageList.length,
           'name':fileName,
           'status':'done',
-          'url':'https://'+Location
+          'img_url':'https://'+Location,
+          'url':'https://'+Location,
         }
         let _currImageList = [...currImageList];
         _currImageList.push(new_img);

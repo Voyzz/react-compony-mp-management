@@ -1,12 +1,23 @@
 import './index.css';
 
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import React,{ Suspense } from 'react';
+
 import App from './App';
-import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <App />,
+  <BrowserRouter>
+    {/* 使用了路由懒加载，所以需要使用<Suspense>包起来 */}
+    <Suspense fallback={<div></div>}>
+      <Switch>
+        <Route path="/" render={routerProps => {
+          return <App {...routerProps}/>
+        }}/>
+      </Switch>
+    </Suspense>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 

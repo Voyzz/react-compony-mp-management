@@ -5,7 +5,6 @@ import React, { useEffect, useReducer, useState } from 'react';
 
 import Commodity from '../components/commodity';
 import ErrorPage from './Error';
-import Homeland from '../components/homeland';
 import Homepage from '../components/homepage';
 import Introduction from '../components/introduction';
 import adminConfig from '../config/adminPageConfig';
@@ -35,8 +34,6 @@ const Component: React.FC<Props> = ({children}) => {
         return (<Homepage />);
       case '0_2':
         return (<Introduction />);
-      case '0_3':
-        return (<Homeland />);
       default:
         return (<ErrorPage />);
     }
