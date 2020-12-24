@@ -389,13 +389,23 @@ const Component: React.FC<Props> = ({children}) => {
   // ------ 添加价格 ------
   const add_price = () => {
     let _currPriceList = [...currPriceList]
-    _currPriceList.push({
+    _currPriceList.unshift({
       price:'',
       date:'',
       currency:'',
       unit:''
     });
     setcurrPriceList(_currPriceList);
+    form.setFieldsValue({
+      price_list:_currPriceList.map((res:any,idx:number) => {
+        return {
+          price:res.price,
+          date:res.date,
+          currency:res.currency,
+          unit:res.unit,
+        }
+      })
+    })
   }
 
   // ------ 删除价格 ------
@@ -404,6 +414,16 @@ const Component: React.FC<Props> = ({children}) => {
       return i !== idx
     })
     setcurrPriceList(_currPriceList);
+    form.setFieldsValue({
+      price_list:_currPriceList.map((res:any,idx:number) => {
+        return {
+          price:res.price,
+          date:res.date,
+          currency:res.currency,
+          unit:res.unit,
+        }
+      })
+    })
   }
 
   // ------ 置顶状态改变 ------

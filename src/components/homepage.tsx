@@ -6,17 +6,17 @@ import React, { useEffect, useState } from 'react';
 import Goods from './homepage/goods';
 import Header from './homepage/header';
 import News from './homepage/news';
-import Search from './homepage/search';
-import Slogan from './homepage/slogan';
+// import Search from './homepage/search';
+// import Slogan from './homepage/slogan';
 import api from '../api';
 
 const { Panel } = Collapse;
 
 const _titleList:{[key:string]:string} = {
   'header':'轮播图',
-  'search':'搜索框',
-  'goods':'商品轮播',
-  'slogan':'标语',
+  // 'search':'搜索框',
+  'goods':'热门商品',
+  // 'slogan':'标语',
   'news':'新闻'
 }
 
@@ -46,11 +46,11 @@ const Component: React.FC<Props> = ({children}) => {
     }
 
     // Search
-    else if(module_type === 'search'){
-      return (
-        <Search module_data={module_data} module_type={module_type} />
-      )
-    }
+    // else if(module_type === 'search'){
+    //   return (
+    //     <Search module_data={module_data} module_type={module_type} />
+    //   )
+    // }
 
     // Goods
     else if(module_type === 'goods'){
@@ -60,11 +60,11 @@ const Component: React.FC<Props> = ({children}) => {
     }
 
     // Slogan
-    else if(module_type === 'slogan'){
-      return (
-        <Slogan module_data={module_data} module_type={module_type} />
-      )
-    }
+    // else if(module_type === 'slogan'){
+    //   return (
+    //     <Slogan module_data={module_data} module_type={module_type} />
+    //   )
+    // }
 
     // Slogan
     else if(module_type === 'news'){
@@ -84,16 +84,20 @@ const Component: React.FC<Props> = ({children}) => {
           {
             currModuleData.length>0 && currModuleData.map((_module:{[key:string]:any},idx:number)=>{
               const { module_type } = _module;
-              return (
-                  <Panel
-                    className="panel"
-                    key={idx} header={_titleList[module_type]}
-                    >
-                    <>
-                    {renderModules(_module,idx)}
-                    </>
-                  </Panel>
-              )
+              if(!!_titleList[module_type]){
+                return (
+                    <Panel
+                      className="panel"
+                      key={idx} header={_titleList[module_type]}
+                      >
+                      <>
+                      {renderModules(_module,idx)}
+                      </>
+                    </Panel>
+                )
+              }else{
+                return (<></>)
+              }
             })
           }
         </Collapse>
