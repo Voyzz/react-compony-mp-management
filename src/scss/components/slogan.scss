@@ -1,0 +1,15 @@
+.module_slogan {
+    width:77vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    .form_container{
+        width: 100%;
+        // width:70vw;
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: flex-start;
+        // align-items: flex-start;
+    }
+}
