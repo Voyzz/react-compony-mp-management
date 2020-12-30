@@ -1,4 +1,4 @@
 /node_modules/
-/src/config/
+/src/config/cosServer.ts
+/src/config/server.ts
 package-lock.json
-/build/
