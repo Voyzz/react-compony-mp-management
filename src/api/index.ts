@@ -19,6 +19,9 @@ export class API {
   public DeleteProduct(params: {[key: string]: any} = {}):Promise<void> {
     return ajax<void>('post','/deleteProduct',params)
   };
+  public CheckLogin(params: {[key: string]: any} = {}):Promise<void> {
+    return ajax<void>('post','/checkLogin',params)
+  };
 }
 
 export default new API();
