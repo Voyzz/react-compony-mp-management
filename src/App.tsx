@@ -5,7 +5,7 @@ import {Route, BrowserRouter as Router} from 'react-router-dom';
 import Admin from './pages/Admin';
 import CheckLogin from "./pages/checkLogin.js";
 import Error from './pages/Error';
-import Login from './pages/Login';
+import Login from './pages/Login.js';
 import React from 'react';
 
 function App() {

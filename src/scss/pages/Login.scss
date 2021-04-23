@@ -1,0 +1,41 @@
+.container {
+    width:100vw;
+    height:100vh;
+    background-color: rgba(161, 170, 212, 0.582);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .loginBox {
+        width: 30vw;
+        height: 50vh;
+        background-color: white;
+        box-shadow: 0px 10px 20px #bbb;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .input {
+            width: 20vw;
+            height: 6vh;
+            margin-bottom: 5vh;
+            border: 1px solid rgb(161, 170, 212);
+            border-radius: 5px;
+            padding: 0 10px;
+        }
+        .submitBtn {
+            width: 10vw;
+            height: 6vh;
+            background-color: rgba(230, 117, 117, 0.87);
+            display: flex;
+            justify-content: center;
+            align-self: center;
+            border-radius: 8px;
+            div {
+                color:white;
+                font-size: 20px;
+                height: 6vh;
+                line-height: 6vh;
+            }
+        }
+    }
+}
