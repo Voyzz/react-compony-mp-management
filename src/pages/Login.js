@@ -30,7 +30,7 @@ class Login extends Component {
   }
 
   render (){
-    return <div className="container">
+    return <div className="login_container">
       <div className="loginBox">
         <input placeholder="用户名" className="input" id="userName"/>
         <input placeholder="密码" className="input" id="userKey"/>
