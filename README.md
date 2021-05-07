@@ -28,8 +28,7 @@ export default cosServerInfo;
 
 ```JavaScript
 const server:{[key:string]:any} = {
-    baseUrl:'https://www.voyz.pro/api/',
-    // baseUrl:'http://localhost:3000/',
+    baseUrl:'***',
 }
 
 export default server;
