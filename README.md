@@ -3,8 +3,8 @@
 ## 项目包含
 
 - [小程序](https://github.com/Voyzz/MyCompany-miniProgram)
-- [管理中台 ( React+TypeSciprt+Antd )](https://github.com/Voyzz/react-compony-mp-management)
-- [服务接口 ( Koa2+Mysql )](https://github.com/Voyzz/koa-micro-service)
+- [管理中台 ( React / TypeSciprt / Antd )](https://github.com/Voyzz/react-compony-mp-management)
+- [服务接口 ( Koa2 / Mysql )](https://github.com/Voyzz/koa-micro-service)
 
 ## 配置
 
